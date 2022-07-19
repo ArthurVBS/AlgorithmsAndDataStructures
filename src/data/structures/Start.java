@@ -1,28 +1,24 @@
 package data.structures;
 
-import data.structures.linkedList.LinkedList;
+import data.structures.stack.Stack;
 
 public class Start {
 
   public static void main(String[] args) {
-    LinkedList list = new LinkedList();
-    list.add("1");
-    list.add("2");
-    list.add("3");
-    list.add("4");
-    list.add("5");
-    list.add("6");
+    Stack stack = new Stack();
 
-    list.remove(1);
-    list.remove(4);
+    stack.push("10");
+    stack.push("20");
+    stack.push("30");
+    stack.push("40");
+    stack.push("50");
+    stack.push("60");
+    stack.push("70");
 
-    System.out.print("Data: ");
-    for (int i = 0; i < list.size(); i++){
-      System.out.print(list.get(i) + ", ");
-    }
+    stack.pop();
 
-    System.out.println("\nSize: " + list.size());
-
-    System.out.println("Has: " + list.has("1"));
+    System.out.println("Top: " + stack.peek());
+    System.out.println("Size: " + stack.size());
+    System.out.println("IsEmpty: " + stack.isEmpty());
   }
 }
