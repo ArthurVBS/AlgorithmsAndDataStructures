@@ -16,6 +16,23 @@ public class Start {
     bst.add(9);
     bst.add(10);
 
-    System.out.println(bst.contains(27));
+    bst.remove(27);
+    bst.remove(14);
+    bst.remove(10);
+
+    System.out.println("IsEmpty: " + bst.isEmpty());
+
+    System.out.println("Contains '3'? " + bst.contains(3));
+    System.out.println("Contains '20'? " + bst.contains(20));
+    System.out.println("Contains '38'? " + bst.contains(38));
+
+    System.out.print("\nTraverse PreOrder: ");
+    bst.traversePreOrder();
+
+    System.out.print("\nTraverse InOrder: ");
+    bst.traverseInOrder();
+
+    System.out.print("\nTraverse PostOrder: ");
+    bst.traversePostOrder();
   }
 }
