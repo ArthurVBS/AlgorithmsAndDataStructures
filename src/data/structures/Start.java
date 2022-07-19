@@ -1,24 +1,26 @@
 package data.structures;
 
-import data.structures.stack.Stack;
+import data.structures.queue.Queue;
 
 public class Start {
 
   public static void main(String[] args) {
-    Stack stack = new Stack();
+    Queue queue = new Queue();
 
-    stack.push("10");
-    stack.push("20");
-    stack.push("30");
-    stack.push("40");
-    stack.push("50");
-    stack.push("60");
-    stack.push("70");
+    queue.enqueue("1");
+    queue.enqueue("2");
+    queue.enqueue("3");
+    queue.enqueue("4");
+    queue.enqueue("5");
+    queue.enqueue("6");
+    queue.enqueue("7");
 
-    stack.pop();
+    queue.dequeue();
+    queue.dequeue();
 
-    System.out.println("Top: " + stack.peek());
-    System.out.println("Size: " + stack.size());
-    System.out.println("IsEmpty: " + stack.isEmpty());
+    System.out.println("Size: " + queue.size());
+    System.out.println("First: " + queue.peek());
+    System.out.println("IsEmpty: " + queue.isEmpty());
+
   }
 }
