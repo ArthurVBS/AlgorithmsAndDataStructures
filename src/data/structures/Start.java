@@ -1,28 +1,28 @@
 package data.structures;
 
-import data.structures.openAddressingHashTable.OpenAddressingHashTable;
+import data.structures.bubbleSort.BubbleSort;
+
+import java.util.Random;
 
 public class Start {
 
   public static void main(String[] args) {
-    OpenAddressingHashTable hashTable = new OpenAddressingHashTable();
+    Random random = new Random();
+    BubbleSort bubbleSort = new BubbleSort();
 
-    final int numElements = 1000000;
+    final int SIZE = 10000;
 
-    long startPutTable = System.currentTimeMillis();
-    for (int i = 0; i < numElements; i++) {
-      String string = String.valueOf(i);
-      hashTable.put(string, string);
+    int[] arr = new int[SIZE];
+
+    for (int i = 0; i < arr.length; i++) {
+      arr[i] = random.nextInt(SIZE * 10);
     }
-    long endPutTable = System.currentTimeMillis();
-    System.out.println("Time putting in the table: " + (endPutTable - startPutTable));
 
-    long startSearchTable = System.currentTimeMillis();
-    for (int i = 0; i < numElements; i++) {
-      String string = String.valueOf(i);
-      hashTable.get(string);
-    }
-    long endSearchTable = System.currentTimeMillis();
-    System.out.println("Time searching in the table: " + (endSearchTable - startSearchTable));
+    long start = System.currentTimeMillis();
+
+    bubbleSort.sort(arr);
+
+    long end = System.currentTimeMillis();
+    System.out.println(end - start);
   }
 }
