@@ -1,29 +1,28 @@
 package data.structures;
 
-import data.structures.adjacencyListGraph.AdjacencyListGraph;
+import data.structures.openAddressingHashTable.OpenAddressingHashTable;
 
 public class Start {
 
   public static void main(String[] args) {
-    AdjacencyListGraph graph = new AdjacencyListGraph(false);
+    OpenAddressingHashTable hashTable = new OpenAddressingHashTable();
 
-    graph.addVertex("C");
-    graph.addVertex("Z");
-    graph.addVertex("F");
-    graph.addVertex("H");
-    graph.addVertex("A");
+    final int numElements = 1000000;
 
-    graph.addEdge(0, 1);
-    graph.addEdge(1, 2);
-    graph.addEdge(2, 0);
-    graph.addEdge(1, 3);
-    graph.addEdge(4, 1);
-    graph.addEdge(4, 2);
+    long startPutTable = System.currentTimeMillis();
+    for (int i = 0; i < numElements; i++) {
+      String string = String.valueOf(i);
+      hashTable.put(string, string);
+    }
+    long endPutTable = System.currentTimeMillis();
+    System.out.println("Time putting in the table: " + (endPutTable - startPutTable));
 
-    graph.removeEdge(0, 1);
-
-    System.out.println(graph);
-
-    graph.breadthFirstTraversal();
+    long startSearchTable = System.currentTimeMillis();
+    for (int i = 0; i < numElements; i++) {
+      String string = String.valueOf(i);
+      hashTable.get(string);
+    }
+    long endSearchTable = System.currentTimeMillis();
+    System.out.println("Time searching in the table: " + (endSearchTable - startSearchTable));
   }
 }
