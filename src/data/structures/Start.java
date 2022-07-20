@@ -1,6 +1,6 @@
 package data.structures;
 
-import data.structures.insertionSort.InsertionSort;
+import data.structures.mergeSort.MergeSort;
 
 import java.util.Random;
 
@@ -8,9 +8,9 @@ public class Start {
 
   public static void main(String[] args) {
     Random random = new Random();
-    InsertionSort insertionSort = new InsertionSort();
+    MergeSort mergeSort = new MergeSort();
 
-    final int SIZE = 100000;
+    final int SIZE = 1000000;
 
     int[] arr = new int[SIZE];
 
@@ -20,7 +20,7 @@ public class Start {
 
     long start = System.currentTimeMillis();
 
-    insertionSort.sort(arr);
+    mergeSort.sort(arr);
 
     long end = System.currentTimeMillis();
     System.out.println(end - start);
