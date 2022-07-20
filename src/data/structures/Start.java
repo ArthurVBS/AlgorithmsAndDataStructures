@@ -1,38 +1,29 @@
 package data.structures;
 
-import data.structures.binarySearchTree.BinarySearchTree;
+import data.structures.adjacencyListGraph.AdjacencyListGraph;
 
 public class Start {
 
   public static void main(String[] args) {
-    BinarySearchTree bst = new BinarySearchTree();
+    AdjacencyListGraph graph = new AdjacencyListGraph(false);
 
-    bst.add(27);
-    bst.add(24);
-    bst.add(14);
-    bst.add(28);
-    bst.add(3);
-    bst.add(38);
-    bst.add(9);
-    bst.add(10);
+    graph.addVertex("C");
+    graph.addVertex("Z");
+    graph.addVertex("F");
+    graph.addVertex("H");
+    graph.addVertex("A");
 
-    bst.remove(27);
-    bst.remove(14);
-    bst.remove(10);
+    graph.addEdge(0, 1);
+    graph.addEdge(1, 2);
+    graph.addEdge(2, 0);
+    graph.addEdge(1, 3);
+    graph.addEdge(4, 1);
+    graph.addEdge(4, 2);
 
-    System.out.println("IsEmpty: " + bst.isEmpty());
+    graph.removeEdge(0, 1);
 
-    System.out.println("Contains '3'? " + bst.contains(3));
-    System.out.println("Contains '20'? " + bst.contains(20));
-    System.out.println("Contains '38'? " + bst.contains(38));
+    System.out.println(graph);
 
-    System.out.print("\nTraverse PreOrder: ");
-    bst.traversePreOrder();
-
-    System.out.print("\nTraverse InOrder: ");
-    bst.traverseInOrder();
-
-    System.out.print("\nTraverse PostOrder: ");
-    bst.traversePostOrder();
+    graph.breadthFirstTraversal();
   }
 }
